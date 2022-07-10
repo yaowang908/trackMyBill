@@ -2,28 +2,30 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 import Tag from 'src/components/SubscriptionItem/Tag';
+import { SubscriptionState } from 'src/features/subscriptionSlice';
 
-interface SubscriptionItemProps {
-  name: string;
-  billingCycle: string; //'weekly' | 'monthly' | 'quarterly' | 'yearly'
-  billingRate: string;
-  billingDate: Date; //TODO could be string every monday or something
-  currency: string; //TODO
-  endingDate?: Date; //TODO
-  startingDate: Date;
-  trailEndingDate?: Date;
-}
+// interface SubscriptionItemProps {
+//   name: string;
+//   billingCycle: string; //'weekly' | 'monthly' | 'quarterly' | 'yearly'
+//   billingRate: string;
+//   billingDate: Date; //TODO could be string every monday or something
+//   currency: string; //TODO
+//   endingDate?: Date; //TODO
+//   startingDate: Date;
+//   trailEndingDate?: Date;
+// }
 
-const SubscriptionItem = ({
-  name,
-  billingCycle,
-  billingRate,
-  currency = 'USD',
-  endingDate,
-  startingDate,
-  trailEndingDate,
-}: SubscriptionItemProps) => {
-  const getBillingCycle = (cycle: SubscriptionItemProps['billingCycle']) => {
+const SubscriptionItem = (props: SubscriptionState) => {
+  const {
+    name,
+    billingCycle,
+    billingRate,
+    currency = 'USD',
+    endingDate,
+    startingDate,
+    trailEndingDate,
+  } = props;
+  const getBillingCycle = (cycle: SubscriptionState['billingCycle']) => {
     switch (cycle) {
       case 'weekly':
         return 'per week';
