@@ -10,7 +10,7 @@ const Layout = ({
   title: string;
 }) => {
   return (
-    <Container maxWidth='md'>
+    <Container maxWidth='md' sx={{ overflow: 'hidden' }}>
       <Head>
         <title>{title}</title>
       </Head>
