@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
+import CreateItem from 'src/components/CreateItem/CreateItem';
+
 const Header = () => {
   return (
     <Box
@@ -18,9 +20,7 @@ const Header = () => {
       <Typography variant='h4' fontFamily='Lobster'>
         TrackMyBill
       </Typography>
-      <IconButton aria-label='add new bill'>
-        <AddIcon fontSize='large' sx={{ color: 'white' }} />
-      </IconButton>
+      <CreateItem />
     </Box>
   );
 };
